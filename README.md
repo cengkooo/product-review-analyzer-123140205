@@ -1,3 +1,8 @@
+## 👨‍💻 Author
+Nama: Andryano Shevchenko Limbong
+NIM: 12310205
+Kelas: Pengembangan Aplikasi Website RA
+
 # 🔍 Product Review Analyzer
 
 AI-powered product review analysis using sentiment analysis and key insights extraction.
@@ -394,8 +399,6 @@ Contributions welcome! Please:
 2. Create a feature branch
 3. Make your changes
 4. Submit a pull request
-
-## 👨‍💻 Author
 
 Built with ❤️ using Pyramid, React, and AI
 
