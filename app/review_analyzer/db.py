@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Get database URL from environment
-DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://postgres:postgres@localhost:5432/reviewdb')
+DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql+psycopg://postgres:12356@localhost:5432/reviewdb')
 
 # Create SQLAlchemy engine
 engine = create_engine(
@@ -43,11 +43,17 @@ def includeme(config):
     Activate this setup using ``config.include('review_analyzer.db')``.
     """
     # Add a request method to get a database session
+    def get_dbsession(request):
+        session = Session()
+        
+        def cleanup(request):
+            session.close()
+        
+        request.add_finished_callback(cleanup)
+        return session
+    
     config.add_request_method(
-        lambda request: Session(),
+        get_dbsession,
         'dbsession',
         reify=True
     )
-    
-    # Register a finished callback to close the session
-    config.add_finished_callback(lambda request: request.dbsession.close())

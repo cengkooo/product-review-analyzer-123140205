@@ -76,9 +76,9 @@ const ReviewHistory = ({ refreshTrigger }) => {
   if (loading && reviews.length === 0) {
     return (
       <div className="card">
-        <div style={{ textAlign: 'center', padding: 'var(--spacing-lg)', color: 'var(--text-muted)' }}>
+        <div style={{ textAlign: 'center', padding: 'var(--spacing-lg)', color: '#4A2C1A' }}>
           <span className="spinner" style={{ width: '40px', height: '40px', borderWidth: '4px' }}></span>
-          <p style={{ marginTop: 'var(--spacing-md)' }}>Loading reviews...</p>
+          <p style={{ marginTop: 'var(--spacing-md)', fontWeight: '600' }}>Loading reviews...</p>
         </div>
       </div>
     );
@@ -100,7 +100,8 @@ const ReviewHistory = ({ refreshTrigger }) => {
         <div style={{ 
           textAlign: 'center', 
           padding: 'var(--spacing-xl)', 
-          color: 'var(--text-muted)' 
+          color: '#4A2C1A',
+          fontWeight: '600'
         }}>
           <div style={{ fontSize: '3rem', marginBottom: 'var(--spacing-md)' }}>📭</div>
           <p>No reviews yet. Analyze your first review above!</p>
@@ -117,10 +118,10 @@ const ReviewHistory = ({ refreshTrigger }) => {
         alignItems: 'center',
         marginBottom: 'var(--spacing-md)' 
       }}>
-        <h2 style={{ color: 'var(--text-primary)' }}>
+        <h2 style={{ color: '#1a0f08', fontWeight: '900', textShadow: '1px 1px 2px rgba(255,255,255,0.5)' }}>
           📚 Review History
         </h2>
-        <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+        <span style={{ color: '#4A2C1A', fontSize: '0.9rem', fontWeight: '600' }}>
           {total} total review{total !== 1 ? 's' : ''}
         </span>
       </div>
@@ -131,18 +132,20 @@ const ReviewHistory = ({ refreshTrigger }) => {
             key={review.id} 
             style={{
               padding: 'var(--spacing-md)',
-              background: 'var(--bg-tertiary)',
+              background: 'rgba(255, 255, 255, 0.5)',
               borderRadius: 'var(--radius-md)',
-              border: '1px solid var(--border)',
-              transition: 'transform 0.2s, box-shadow 0.2s'
+              border: '2px solid var(--border-scroll)',
+              transition: 'transform 0.2s, box-shadow 0.2s, background 0.2s'
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateX(4px)';
-              e.currentTarget.style.boxShadow = '0 4px 8px var(--shadow)';
+              e.currentTarget.style.boxShadow = '0 6px 12px rgba(255, 107, 53, 0.3)';
+              e.currentTarget.style.background = 'rgba(255, 182, 39, 0.2)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = 'translateX(0)';
               e.currentTarget.style.boxShadow = 'none';
+              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.5)';
             }}
           >
             <div style={{ 
@@ -154,15 +157,16 @@ const ReviewHistory = ({ refreshTrigger }) => {
               <span className={`sentiment-badge ${getSentimentColor(review.sentiment)}`}>
                 {getSentimentEmoji(review.sentiment)} {review.sentiment}
               </span>
-              <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>
+              <span style={{ color: '#4A2C1A', fontSize: '0.85rem', fontWeight: '500' }}>
                 {formatDate(review.created_at)}
               </span>
             </div>
             
             <p style={{ 
-              color: 'var(--text-primary)', 
+              color: '#1a0f08', 
               marginBottom: 'var(--spacing-sm)',
-              lineHeight: '1.5'
+              lineHeight: '1.5',
+              fontWeight: '500'
             }}>
               "{truncateText(review.review_text)}"
             </p>
@@ -172,7 +176,8 @@ const ReviewHistory = ({ refreshTrigger }) => {
               alignItems: 'center', 
               gap: 'var(--spacing-sm)',
               fontSize: '0.9rem',
-              color: 'var(--text-secondary)'
+              color: '#2C1810',
+              fontWeight: '600'
             }}>
               <span>Confidence: {(review.sentiment_score * 100).toFixed(1)}%</span>
               {review.key_points && review.key_points.length > 0 && (
@@ -203,7 +208,7 @@ const ReviewHistory = ({ refreshTrigger }) => {
             ← Previous
           </button>
           
-          <span style={{ color: 'var(--text-secondary)' }}>
+          <span style={{ color: '#2C1810', fontWeight: '700' }}>
             Page {page} of {totalPages}
           </span>
           

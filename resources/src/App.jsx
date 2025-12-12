@@ -33,8 +33,8 @@ function App() {
     <div className="container">
       {/* Header */}
       <header className="header">
-        <h1>🔍 Product Review Analyzer</h1>
-        <p>Analyze product reviews with AI-powered sentiment analysis and key insights</p>
+        <h1>🍜 ICHIRAKU REVIEW ANALYZER 🍥</h1>
+        <p>Jutsu Review - Now Analyzing Your Reviews with Ninja Precision!</p>
       </header>
 
       {/* Main Content */}
@@ -70,7 +70,7 @@ function App() {
         color: 'var(--text-muted)',
         borderTop: '1px solid var(--border)'
       }}>
-        <p>Powered by Hugging Face Sentiment Analysis & Google Gemini AI</p>
+        <p>🍥 Created by Andryano S. Limbong - PeternakDomba - 123140205 🍜</p>
       </footer>
     </div>
   );

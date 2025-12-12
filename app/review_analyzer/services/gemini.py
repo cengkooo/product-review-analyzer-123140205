@@ -19,7 +19,7 @@ else:
     print("Gemini API configured successfully!")
 
 # Initialize the model
-model = genai.GenerativeModel('gemini-pro') if GEMINI_CONFIGURED else None
+model = genai.GenerativeModel('gemini-2.0-flash-exp') if GEMINI_CONFIGURED else None
 
 
 def extract_key_points(text: str) -> list[str]:

@@ -1,26 +1,39 @@
 :root {
-  /* Color Palette - Modern & Vibrant */
-  --primary: #6366f1;
-  --primary-dark: #4f46e5;
-  --primary-light: #818cf8;
+  /* 🍜 Naruto Ramen Theme - Ichiraku Colors */
+  --naruto-orange: #FF6B35;
+  --naruto-orange-dark: #E85D2C;
+  --naruto-orange-light: #FF8C61;
   
-  --success: #10b981;
-  --success-light: #d1fae5;
-  --warning: #f59e0b;
-  --warning-light: #fef3c7;
-  --danger: #ef4444;
-  --danger-light: #fee2e2;
+  --ramen-yellow: #FFB627;
+  --ramen-cream: #FFF4E0;
+  --noodle-beige: #F5DEB3;
   
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --bg-tertiary: #334155;
+  --konoha-green: #4A7C59;
+  --konoha-green-dark: #2F5233;
   
-  --text-primary: #f1f5f9;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
+  --ninja-scroll: #F4E8D0;
+  --ninja-scroll-dark: #D4C4A8;
   
-  --border: #334155;
-  --shadow: rgba(0, 0, 0, 0.3);
+  --positive-green: #4CAF50;
+  --positive-light: #C8E6C9;
+  --neutral-yellow: #FFC107;
+  --neutral-light: #FFF9C4;
+  --negative-red: #F44336;
+  --negative-light: #FFCDD2;
+  
+  --bg-primary: #2C1810;
+  --bg-secondary: #3D2817;
+  --bg-card: #4A3426;
+  --bg-scroll: #F9F3E8;
+  
+  --text-primary: #FFF4E0;
+  --text-secondary: #FFE4B5;
+  --text-dark: #2C1810;
+  --text-muted: #C4A57B;
+  
+  --border-orange: #FF6B35;
+  --border-scroll: #D4C4A8;
+  --shadow-ramen: rgba(255, 107, 53, 0.3);
   
   /* Spacing */
   --spacing-xs: 0.5rem;
@@ -34,8 +47,8 @@
   --radius-md: 0.75rem;
   --radius-lg: 1rem;
   
-  /* Typography */
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  /* Typography - Ninja Style */
+  font-family: 'Courier New', 'Noto Sans JP', monospace;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -49,10 +62,28 @@
 }
 
 body {
-  background: linear-gradient(135deg, var(--bg-primary) 0%, #1a1f35 100%);
+  background: linear-gradient(135deg, var(--bg-primary) 0%, #4A2C1A 50%, var(--bg-secondary) 100%);
+  background-attachment: fixed;
   color: var(--text-primary);
   min-height: 100vh;
   line-height: 1.6;
+  position: relative;
+}
+
+/* 🍜 Ramen Steam Effect */
+body::before {
+  content: '🍜';
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 3rem;
+  opacity: 0.3;
+  animation: steam 3s ease-in-out infinite;
+}
+
+@keyframes steam {
+  0%, 100% { transform: translateY(0px); opacity: 0.3; }
+  50% { transform: translateY(-10px); opacity: 0.5; }
 }
 
 /* Container */
@@ -62,42 +93,97 @@ body {
   padding: var(--spacing-lg);
 }
 
-/* Header */
+/* 🍥 Ichiraku Ramen Header */
 .header {
   text-align: center;
   margin-bottom: var(--spacing-xl);
-  padding: var(--spacing-lg) 0;
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--naruto-orange) 0%, var(--ramen-yellow) 100%);
+  border: 4px solid var(--border-orange);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 16px var(--shadow-ramen), inset 0 2px 4px rgba(255,255,255,0.3);
+  position: relative;
+}
+
+.header::before {
+  content: '🍥';
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  animation: spin 10s linear infinite;
+}
+
+.header::after {
+  content: '🍥';
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  animation: spin 10s linear infinite reverse;
 }
 
 .header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--text-dark);
+  text-shadow: 3px 3px 0px rgba(255,255,255,0.5), -1px -1px 0px rgba(0,0,0,0.3);
   margin-bottom: var(--spacing-sm);
+  letter-spacing: 2px;
 }
 
 .header p {
-  color: var(--text-secondary);
+  color: var(--text-dark);
   font-size: 1.1rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
 }
 
-/* Card */
+/* 📜 Ninja Scroll Card */
 .card {
-  background: var(--bg-secondary);
-  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, var(--ninja-scroll) 0%, var(--bg-scroll) 100%);
+  border-radius: var(--radius-md);
   padding: var(--spacing-lg);
   margin-bottom: var(--spacing-lg);
-  border: 1px solid var(--border);
-  box-shadow: 0 4px 6px var(--shadow);
-  transition: transform 0.2s, box-shadow 0.2s;
+  border: 3px solid var(--border-scroll);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  color: var(--text-dark);
+}
+
+/* Scroll edges */
+.card::before,
+.card::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 8px;
+  left: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--naruto-orange),
+    var(--naruto-orange) 10px,
+    var(--ramen-yellow) 10px,
+    var(--ramen-yellow) 20px
+  );
+}
+
+.card::before {
+  top: 0;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.card::after {
+  bottom: 0;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
 }
 
 .card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 12px var(--shadow);
+  transform: translateY(-4px) rotate(-1deg);
+  box-shadow: 0 12px 24px rgba(255, 107, 53, 0.4), inset 0 1px 0 rgba(255,255,255,0.7);
 }
 
 /* Form Elements */
@@ -108,27 +194,33 @@ body {
 .form-label {
   display: block;
   margin-bottom: var(--spacing-xs);
-  font-weight: 600;
-  color: var(--text-primary);
+  font-weight: 700;
+  color: #1a0f08;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
 }
 
 .form-input,
 .form-textarea {
   width: 100%;
   padding: var(--spacing-sm);
-  background: var(--bg-tertiary);
-  border: 2px solid var(--border);
+  background: rgba(255, 255, 255, 0.95);
+  border: 3px solid var(--border-scroll);
   border-radius: var(--radius-md);
-  color: var(--text-primary);
+  color: #1a0f08;
   font-size: 1rem;
   transition: border-color 0.3s, box-shadow 0.3s;
+  font-family: 'Courier New', monospace;
+  font-weight: 500;
 }
 
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  border-color: var(--naruto-orange);
+  box-shadow: 0 0 0 4px var(--shadow-ramen), 0 0 20px rgba(255, 107, 53, 0.3);
 }
 
 .form-textarea {
@@ -152,13 +244,18 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  background: linear-gradient(135deg, var(--naruto-orange) 0%, var(--naruto-orange-dark) 100%);
   color: white;
+  border: 2px solid var(--ramen-yellow);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .btn-primary:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px var(--shadow-ramen), 0 0 30px rgba(255, 182, 39, 0.5);
+  background: linear-gradient(135deg, var(--ramen-yellow) 0%, var(--naruto-orange) 100%);
 }
 
 .btn-primary:disabled {
@@ -167,13 +264,16 @@ body {
 }
 
 .btn-secondary {
-  background: var(--bg-tertiary);
-  color: var(--text-primary);
-  border: 1px solid var(--border);
+  background: var(--ninja-scroll);
+  color: var(--text-dark);
+  border: 2px solid var(--border-scroll);
+  font-weight: 600;
 }
 
 .btn-secondary:hover {
-  background: var(--bg-secondary);
+  background: var(--ramen-cream);
+  border-color: var(--naruto-orange);
+  transform: translateY(-2px);
 }
 
 /* Sentiment Badge */
@@ -181,25 +281,30 @@ body {
   display: inline-block;
   padding: var(--spacing-xs) var(--spacing-md);
   border-radius: var(--radius-lg);
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-weight: 700;
+  font-size: 0.95rem;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1.5px;
+  border: 2px solid currentColor;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 .sentiment-positive {
-  background: var(--success-light);
-  color: var(--success);
+  background: var(--positive-light);
+  color: var(--positive-green);
+  border-color: var(--positive-green);
 }
 
 .sentiment-neutral {
-  background: var(--warning-light);
-  color: var(--warning);
+  background: var(--neutral-light);
+  color: var(--neutral-yellow);
+  border-color: var(--neutral-yellow);
 }
 
 .sentiment-negative {
-  background: var(--danger-light);
-  color: var(--danger);
+  background: var(--negative-light);
+  color: var(--negative-red);
+  border-color: var(--negative-red);
 }
 
 /* Key Points List */
@@ -210,15 +315,18 @@ body {
 
 .key-point-item {
   padding: var(--spacing-sm);
-  background: var(--bg-tertiary);
-  border-left: 3px solid var(--primary);
+  background: rgba(255, 255, 255, 0.5);
+  border-left: 4px solid var(--naruto-orange);
   border-radius: var(--radius-sm);
   margin-bottom: var(--spacing-sm);
-  transition: transform 0.2s;
+  transition: transform 0.2s, background 0.2s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .key-point-item:hover {
-  transform: translateX(4px);
+  transform: translateX(6px);
+  background: rgba(255, 182, 39, 0.3);
+  border-left-width: 6px;
 }
 
 /* Loading Spinner */
@@ -226,10 +334,10 @@ body {
   display: inline-block;
   width: 20px;
   height: 20px;
-  border: 3px solid rgba(255, 255, 255, 0.3);
+  border: 3px solid rgba(255, 182, 39, 0.3);
   border-radius: 50%;
-  border-top-color: white;
-  animation: spin 0.8s linear infinite;
+  border-top-color: var(--ramen-yellow);
+  animation: spin 0.6s linear infinite;
 }
 
 @keyframes spin {
@@ -238,22 +346,26 @@ body {
 
 /* Error Message */
 .error-message {
-  background: var(--danger-light);
-  color: var(--danger);
+  background: var(--negative-light);
+  color: var(--negative-red);
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--radius-md);
   margin-bottom: var(--spacing-md);
-  border-left: 4px solid var(--danger);
+  border-left: 5px solid var(--negative-red);
+  border: 2px solid var(--negative-red);
+  font-weight: 600;
 }
 
 /* Success Message */
 .success-message {
-  background: var(--success-light);
-  color: var(--success);
+  background: var(--positive-light);
+  color: var(--positive-green);
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--radius-md);
   margin-bottom: var(--spacing-md);
-  border-left: 4px solid var(--success);
+  border-left: 5px solid var(--positive-green);
+  border: 2px solid var(--positive-green);
+  font-weight: 600;
 }
 
 /* Grid Layout */
@@ -307,10 +419,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--bg-tertiary);
+  background: var(--naruto-orange);
   border-radius: var(--radius-sm);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
+  background: var(--ramen-yellow);
 }

@@ -35,7 +35,7 @@ const ReviewResult = ({ result }) => {
 
   return (
     <div className="card fade-in">
-      <h2 style={{ marginBottom: 'var(--spacing-md)', color: 'var(--text-primary)' }}>
+      <h2 style={{ marginBottom: 'var(--spacing-md)', color: '#1a0f08', fontWeight: '900', textShadow: '1px 1px 2px rgba(255,255,255,0.5)' }}>
         📊 Analysis Results
       </h2>
       
@@ -44,7 +44,10 @@ const ReviewResult = ({ result }) => {
         <h3 style={{ 
           fontSize: '1.1rem', 
           marginBottom: 'var(--spacing-sm)', 
-          color: 'var(--text-secondary)' 
+          color: '#2C1810',
+          fontWeight: '700',
+          textTransform: 'uppercase',
+          letterSpacing: '1px'
         }}>
           Sentiment
         </h3>
@@ -71,8 +74,8 @@ const ReviewResult = ({ result }) => {
             }} />
           </div>
           <span style={{ 
-            color: 'var(--text-secondary)', 
-            fontWeight: '600',
+            color: '#2C1810', 
+            fontWeight: '700',
             minWidth: '60px',
             textAlign: 'right'
           }}>
@@ -86,7 +89,10 @@ const ReviewResult = ({ result }) => {
         <h3 style={{ 
           fontSize: '1.1rem', 
           marginBottom: 'var(--spacing-sm)', 
-          color: 'var(--text-secondary)' 
+          color: '#2C1810',
+          fontWeight: '700',
+          textTransform: 'uppercase',
+          letterSpacing: '1px'
         }}>
           Key Points
         </h3>
@@ -94,7 +100,7 @@ const ReviewResult = ({ result }) => {
           <ul className="key-points">
             {result.key_points.map((point, index) => (
               <li key={index} className="key-point-item">
-                <span style={{ color: 'var(--primary)', marginRight: 'var(--spacing-xs)' }}>
+                <span style={{ color: 'var(--naruto-orange)', marginRight: 'var(--spacing-xs)', fontWeight: '900' }}>
                   ▸
                 </span>
                 {point}
@@ -104,10 +110,12 @@ const ReviewResult = ({ result }) => {
         ) : (
           <div style={{ 
             padding: 'var(--spacing-md)', 
-            background: 'var(--bg-tertiary)', 
+            background: 'rgba(255, 182, 39, 0.2)', 
             borderRadius: 'var(--radius-md)',
-            color: 'var(--text-muted)',
-            textAlign: 'center'
+            color: '#4A2C1A',
+            textAlign: 'center',
+            fontWeight: '600',
+            border: '2px dashed var(--naruto-orange)'
           }}>
             ℹ️ No key points extracted (Gemini API may be unavailable)
           </div>
@@ -119,16 +127,22 @@ const ReviewResult = ({ result }) => {
         <h3 style={{ 
           fontSize: '1.1rem', 
           marginBottom: 'var(--spacing-sm)', 
-          color: 'var(--text-secondary)' 
+          color: '#2C1810',
+          fontWeight: '700',
+          textTransform: 'uppercase',
+          letterSpacing: '1px'
         }}>
           Original Review
         </h3>
         <div style={{ 
           padding: 'var(--spacing-md)', 
-          background: 'var(--bg-tertiary)', 
+          background: 'rgba(255, 255, 255, 0.6)', 
           borderRadius: 'var(--radius-md)',
-          color: 'var(--text-primary)',
-          lineHeight: '1.6'
+          color: '#1a0f08',
+          lineHeight: '1.6',
+          fontWeight: '500',
+          fontStyle: 'italic',
+          border: '2px solid var(--border-scroll)'
         }}>
           "{result.review_text}"
         </div>

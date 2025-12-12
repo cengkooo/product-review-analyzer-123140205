@@ -35,7 +35,7 @@ const ReviewForm = ({ onSubmit, isLoading }) => {
 
   return (
     <div className="card fade-in">
-      <h2 style={{ marginBottom: 'var(--spacing-md)', color: 'var(--text-primary)' }}>
+      <h2 style={{ marginBottom: 'var(--spacing-md)', color: 'black' }}>
         📝 Analyze Product Review
       </h2>
       
