@@ -1,0 +1,21 @@
+# Core Pyramid Framework
+pyramid==2.0.2
+waitress==3.0.0
+pyramid-tm==2.5
+pyramid-debugtoolbar==4.12.1
+
+# Database
+SQLAlchemy==2.0.23
+psycopg[binary]==3.2.3
+
+# Configuration & Validation
+python-dotenv==1.0.0
+pydantic==2.10.5
+
+# NLP & AI
+transformers==4.47.1
+torch==2.9.1
+google-generativeai==0.8.3
+
+# Utilities
+requests==2.31.0
